@@ -1,2 +1,6 @@
-package main.service.Impl;public class CursoServiceImpl {
+package main.service.Impl;
+
+import main.service.CursoService;
+
+public class CursoServiceImpl implements CursoService {
 }

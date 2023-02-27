@@ -1,2 +1,4 @@
-package main.model;public class Matricula {
+package main.model;
+
+public class Matricula {
 }

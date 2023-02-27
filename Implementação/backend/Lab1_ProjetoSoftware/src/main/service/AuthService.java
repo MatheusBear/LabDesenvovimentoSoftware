@@ -1,2 +1,4 @@
-package main.service;public interface AuthService {
+package main.service;
+
+public interface AuthService {
 }

@@ -1,2 +1,6 @@
-package main.service.Impl;public class AuthServiceImpl {
+package main.service.Impl;
+
+import main.service.AuthService;
+
+public class AuthServiceImpl implements AuthService {
 }

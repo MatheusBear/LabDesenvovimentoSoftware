@@ -1,2 +1,6 @@
-package main.service.Impl;public class SecretarioServiceImpl {
+package main.service.Impl;
+
+import main.service.SecretarioService;
+
+public class SecretarioServiceImpl implements SecretarioService {
 }

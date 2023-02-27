@@ -1,2 +1,6 @@
-package main.service.Impl;public class MatriculaServiceImpl {
+package main.service.Impl;
+
+import main.service.MatriculaService;
+
+public class MatriculaServiceImpl implements MatriculaService {
 }

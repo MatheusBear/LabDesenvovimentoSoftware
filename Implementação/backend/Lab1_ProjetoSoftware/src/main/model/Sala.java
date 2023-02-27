@@ -1,2 +1,4 @@
-package main.model;public class Sala {
+package main.model;
+
+public class Sala {
 }

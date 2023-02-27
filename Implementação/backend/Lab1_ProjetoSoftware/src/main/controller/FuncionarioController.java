@@ -1,2 +1,4 @@
-package main.controller;public class FuncionarioController {
+package main.controller;
+
+public class FuncionarioController {
 }

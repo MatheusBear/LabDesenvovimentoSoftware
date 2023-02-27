@@ -1,4 +1,4 @@
 package main.service;
 
-public interface Sala {
+public interface SalaService {
 }

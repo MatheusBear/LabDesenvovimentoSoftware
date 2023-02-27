@@ -1,2 +1,4 @@
-package main.model;public class Secretario {
+package main.model;
+
+public class Secretario extends Funcionario{
 }

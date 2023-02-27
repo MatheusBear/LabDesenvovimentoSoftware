@@ -1,2 +1,4 @@
-package main.controller;public class MatriculaController {
+package main.controller;
+
+public class MatriculaController {
 }

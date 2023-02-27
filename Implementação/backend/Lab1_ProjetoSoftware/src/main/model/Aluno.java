@@ -1,2 +1,4 @@
-package main.model;public class Aluno {
+package main.model;
+
+public class Aluno {
 }

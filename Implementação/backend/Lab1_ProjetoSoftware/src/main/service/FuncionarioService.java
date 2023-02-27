@@ -1,2 +1,4 @@
-package main.service;public interface FuncionarioService {
+package main.service;
+
+public interface FuncionarioService {
 }

@@ -1,2 +1,4 @@
-package main.controller;public class AuthController {
+package main.controller;
+
+public class AuthController {
 }

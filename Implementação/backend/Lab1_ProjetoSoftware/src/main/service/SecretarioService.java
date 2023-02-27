@@ -1,2 +1,4 @@
-package main.service.Impl;public interface SecretarioService {
+package main.service;
+
+public interface SecretarioService {
 }

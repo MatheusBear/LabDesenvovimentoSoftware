@@ -1,2 +1,4 @@
-package main.controller;public class AlunoController {
+package main.controller;
+
+public class AlunoController {
 }

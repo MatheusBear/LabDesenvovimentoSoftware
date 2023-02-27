@@ -1,2 +1,4 @@
-package main.model;public class Disciplina {
+package main.model;
+
+public class Disciplina {
 }

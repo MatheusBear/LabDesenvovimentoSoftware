@@ -1,2 +1,4 @@
-package main.service;public interface AlunoService {
+package main.service;
+
+public interface AlunoService {
 }

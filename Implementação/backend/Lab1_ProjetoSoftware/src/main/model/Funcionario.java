@@ -1,2 +1,4 @@
-package main.model;public class Funcionario {
+package main.model;
+
+public abstract class Funcionario {
 }

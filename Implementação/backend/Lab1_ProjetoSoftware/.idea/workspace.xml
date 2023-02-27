@@ -2,12 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aeafae7-6f81-46da-95b8-820de1697dc2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/k" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Aluno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Curso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Disciplina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Funcionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Matricula.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Professor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Sala.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/model/Secretario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/repository/Persistencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/AlunoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/CursoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/DisciplinaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/FuncionarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/AlunoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/CursoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/DisciplinaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/FuncionarioServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/MatriculaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/SalaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/Impl/SecretarioServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/MatriculaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/SalaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/service/SecretarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -16,7 +49,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MLAMSZgz0Sx5vzTMrjHYpR3s8J" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,6 +61,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -39,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677536441110</updated>
-      <workItem from="1677536442587" duration="378000" />
+      <workItem from="1677536442587" duration="1738000" />
     </task>
     <servers />
   </component>

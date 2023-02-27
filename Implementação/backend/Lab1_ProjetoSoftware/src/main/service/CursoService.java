@@ -1,2 +1,4 @@
-package main.service;public class CursoService {
+package main.service;
+
+public interface CursoService {
 }

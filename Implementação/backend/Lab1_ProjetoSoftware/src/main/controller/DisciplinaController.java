@@ -1,2 +1,4 @@
-package main.controller;public class DisciplinaController {
+package main.controller;
+
+public class DisciplinaController {
 }

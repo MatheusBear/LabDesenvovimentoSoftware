@@ -1,2 +1,4 @@
-package main.repository;public interface Persistencia {
+package main.repository;
+
+public interface Persistencia {
 }

@@ -1,2 +1,4 @@
-package main.service;public class DisciplinaService {
+package main.service;
+
+public interface DisciplinaService {
 }
