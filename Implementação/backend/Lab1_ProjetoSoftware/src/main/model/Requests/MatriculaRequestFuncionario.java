@@ -1,12 +1,11 @@
-package main.model;
+package main.model.Requests;
 
 import java.math.BigInteger;
-import java.util.List;
 
-public abstract class Funcionario {
+public class MatriculaRequestFuncionario {
 
-    private Long id;
-    private Long matricula;
+
+
     private String nome;
     private String nomeFamiliar;
     private String documentoLegal;
