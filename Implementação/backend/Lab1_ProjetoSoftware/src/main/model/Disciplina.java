@@ -11,6 +11,7 @@ public class Disciplina {
     private String horario;
     private String turno;
     private String duração;
+    private Integer peso;
 
 
 }
