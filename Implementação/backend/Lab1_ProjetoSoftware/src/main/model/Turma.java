@@ -8,5 +8,6 @@ public class Turma {
     private List<Aluno> alunos;
     private Sala sala;
     private Curso curso;
+    private Professor professor;
 
 }
