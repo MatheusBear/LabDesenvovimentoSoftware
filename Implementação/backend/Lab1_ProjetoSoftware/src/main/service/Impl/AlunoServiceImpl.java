@@ -6,12 +6,15 @@ import main.model.Turma;
 import main.service.AlunoService;
 import main.service.TurmaService;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 public class AlunoServiceImpl implements AlunoService {
 
 
     private TurmaService turmaService;
+    private String systemPathAlunos = "c:\\SistemaMatriculas\\Alunos";
     @Override
     public Aluno criarAluno(Aluno aluno) {
         return null;
@@ -62,5 +65,23 @@ public class AlunoServiceImpl implements AlunoService {
 
         }
         return null;
+    }
+
+    @Override
+    public Aluno findAlunoById(Long idAluno) {
+
+        Date actualDate = new Date();
+        String path = systemPathAlunos+"\\"+"Alunos.txt";
+        File dest = new File(path);
+
+        if(dest == null){
+            //arquivo inexistente
+        }else{
+            //
+
+        }
+
+        return null;
+
     }
 }

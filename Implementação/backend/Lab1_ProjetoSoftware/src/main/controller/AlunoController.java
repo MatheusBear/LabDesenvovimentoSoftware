@@ -34,7 +34,7 @@ public class AlunoController {
 
     public List<Disciplina> matricularEmDisciplinas (List<Disciplina> disciplinas, Long idAluno){
 
-        Aluno aluno = findAlunoById(idAluno);
+        Aluno aluno = alunoService.findAlunoById(idAluno);
 
         List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas,idAluno);
 
@@ -51,7 +51,7 @@ public class AlunoController {
 
     public boolean selecionarDisciplinas(Long idAluno){
 
-        Aluno aluno = findAlunoById(idAluno);
+        Aluno aluno = alunoService.findAlunoById(idAluno);
 
         List<Disciplina> disciplinasDisponiveis = aluno.getCurriculo().getDisciplinasDoCurriculo();
 
@@ -66,9 +66,5 @@ public class AlunoController {
 
     }
 
-
-    private Aluno findAlunoById(Long id) {
-        return null;
-    }
 
 }
