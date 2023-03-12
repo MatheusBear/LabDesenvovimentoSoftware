@@ -18,4 +18,14 @@ public class TurmaServiceImpl implements TurmaService {
     public Turma deletarTurma(Turma turma) {
         return null;
     }
+
+    @Override
+    public Turma getTurma(Long idDisciplina, String numeroDisciplina) {
+        return null;
+    }
+
+    @Override
+    public boolean matricularAluno(Long id, Turma turma) {
+        return false;
+    }
 }

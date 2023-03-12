@@ -28,7 +28,7 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long id) {
+    public List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long idAluno) {
 
         int somatorioPeso = 0 ;
         int somatorioDisciplinasObrigatorias =0;
@@ -46,12 +46,16 @@ public class AlunoServiceImpl implements AlunoService {
             }
         }
 
+        // solicita ao serviço da turma para incluir este aluno na sua lista,
+        // turma service procura a turma por ID e salva o aluno la dentro
+        // depois escreve no txt desta turma denovo a turma atualizada
+
         if (somatorioDisciplinasObrigatorias>=4 && somatorioDisciplinasOptativas >=2 && somatorioPeso > 3){
 
             for (Disciplina disciplinaAtual: disciplinasDesejadas) {
 
                 Turma turma = turmaService.getTurma(disciplinaAtual.getId(), disciplinaAtual.getNumero());
-                turmaService.matricularAluno(id,turma);
+                turmaService.matricularAluno(idAluno,turma);
 
             }
             return disciplinasDesejadas;

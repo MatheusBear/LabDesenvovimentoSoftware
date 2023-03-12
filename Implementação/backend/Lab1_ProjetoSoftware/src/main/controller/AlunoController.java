@@ -32,11 +32,11 @@ public class AlunoController {
         return null;
     }
 
-    public List<Disciplina> matricularEmDisciplinas (List<Disciplina> disciplinas, Long id){
+    public List<Disciplina> matricularEmDisciplinas (List<Disciplina> disciplinas, Long idAluno){
 
-        Aluno aluno = findAlunoById(id);
+        Aluno aluno = findAlunoById(idAluno);
 
-        List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas,id);
+        List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas,idAluno);
 
         if(matricula == null ){
             //nao foi possivel matricular, requisitos nao atendem
@@ -49,15 +49,15 @@ public class AlunoController {
 
     }
 
-    public boolean selecionarDisciplinas(Long id){
+    public boolean selecionarDisciplinas(Long idAluno){
 
-        Aluno aluno = findAlunoById(id);
+        Aluno aluno = findAlunoById(idAluno);
 
         List<Disciplina> disciplinasDisponiveis = aluno.getCurriculo().getDisciplinasDoCurriculo();
 
         LinkedList disciplinasSelecionadas = new LinkedList<>();
 
-        if(matricularEmDisciplinas(disciplinasSelecionadas,id) != null ){
+        if(matricularEmDisciplinas(disciplinasSelecionadas,idAluno) != null ){
 
             return true;
         }else{

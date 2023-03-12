@@ -12,6 +12,6 @@ public interface AlunoService {
     Aluno editarAluno (Aluno aluno);
     Aluno deletarAluno (Aluno aluno);
 
-    List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long id);
+    List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long idAluno);
 
 }
