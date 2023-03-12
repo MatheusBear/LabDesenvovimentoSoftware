@@ -17,7 +17,24 @@ public class AlunoServiceImpl implements AlunoService {
     private String systemPathAlunos = "c:\\SistemaMatriculas\\Alunos";
     @Override
     public Aluno criarAluno(Aluno aluno) {
-        return null;
+
+        Date actualDate = new Date();
+        String path = systemPathAlunos+"\\"+"Alunos.txt";
+        File dest = new File(path);
+
+        if(dest == null){
+            //cria arquivo
+            //instancia aluno
+            //salva no arquivo
+
+        }else{
+            Aluno alunoResult = findAlunoById(aluno.getId());
+            if(alunoResult==null){
+                //instancia aluno
+                //salva no arquivo
+            }
+        }
+        return aluno;
     }
 
     @Override
@@ -77,7 +94,8 @@ public class AlunoServiceImpl implements AlunoService {
         if(dest == null){
             //arquivo inexistente
         }else{
-            //
+            //passar um for no arquivo e procurar a linha com id correto ( provavelmente usaremos serialize )
+
 
         }
 
