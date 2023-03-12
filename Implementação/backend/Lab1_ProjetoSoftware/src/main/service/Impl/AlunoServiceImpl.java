@@ -6,7 +6,9 @@ import main.model.Turma;
 import main.service.AlunoService;
 import main.service.TurmaService;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.Date;
 import java.util.List;
 
@@ -94,12 +96,28 @@ public class AlunoServiceImpl implements AlunoService {
         if(dest == null){
             //arquivo inexistente
         }else{
-            //passar um for no arquivo e procurar a linha com id correto ( provavelmente usaremos serialize )
+            String resp ="";
+            try{
+                BufferedReader arquivo = new BufferedReader(new FileReader("Alunos.txt)"));
+                do{
+                    String linha = arquivo.readLine();
+                    String[] linhaSplitada = linha.split("|");
+                    if (Integer.parseInt(linhaSplitada[0]) == idAluno){
+                        return builtAlunoFromString(linha);
+                    }
+
+                }while(arquivo.ready());
+
+            }catch(Exception e){e.printStackTrace();}
 
 
         }
 
         return null;
 
+    }
+
+    private Aluno builtAlunoFromString(String linha) {
+        return null;
     }
 }
