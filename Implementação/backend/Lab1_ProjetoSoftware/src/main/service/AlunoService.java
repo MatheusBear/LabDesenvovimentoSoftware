@@ -11,7 +11,8 @@ public interface AlunoService {
     Aluno criarAluno(Aluno aluno) throws Exception;
     Aluno editarAluno(Long id) throws Exception;
 
-    Aluno deletarAluno (Aluno aluno);
+    Aluno deletarAluno(Long id) throws Exception;
+
     List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long idAluno);
 
     Aluno findAlunoById(Long idAluno) throws Exception;

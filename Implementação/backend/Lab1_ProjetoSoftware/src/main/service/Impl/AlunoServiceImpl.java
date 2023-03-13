@@ -39,8 +39,16 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public Aluno deletarAluno(Aluno aluno) {
-        return null;
+    public Aluno deletarAluno(Long id) throws Exception {
+        Aluno aluno = findAlunoById(id);
+        if ( aluno!= null){
+
+            excluirAlunoNoArquivo(aluno,"Alunos.txt");
+        }else{
+            System.out.println("ALUNO NÃO ENCONTRADO");
+        }
+        return aluno;
+
     }
 
     @Override
@@ -101,6 +109,15 @@ public class AlunoServiceImpl implements AlunoService {
         String path = systemPathAlunos+"\\"+nomeArquivoAluno;
         LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
         alunos.add(aluno.clone());
+        return persistir.serializar(path,alunos);
+
+    }
+
+    private boolean excluirAlunoNoArquivo(Aluno aluno, String nomeArquivoAluno) throws Exception {
+
+        String path = systemPathAlunos+"\\"+nomeArquivoAluno;
+        LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
+        alunos.remove(aluno);
         return persistir.serializar(path,alunos);
 
     }
