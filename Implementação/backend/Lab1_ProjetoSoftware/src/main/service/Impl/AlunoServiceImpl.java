@@ -3,45 +3,39 @@ package main.service.Impl;
 import main.model.Aluno;
 import main.model.Disciplina;
 import main.model.Turma;
+import main.repository.Persistencia;
 import main.service.AlunoService;
 import main.service.TurmaService;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class AlunoServiceImpl implements AlunoService {
 
 
     private TurmaService turmaService;
+    private Persistencia persistir;
     private String systemPathAlunos = "c:\\SistemaMatriculas\\Alunos";
+
     @Override
-    public Aluno criarAluno(Aluno aluno) {
+    public Aluno criarAluno(Aluno aluno) throws Exception {
 
-        Date actualDate = new Date();
-        String path = systemPathAlunos+"\\"+"Alunos.txt";
-        File dest = new File(path);
-
-        if(dest == null){
-            //cria arquivo
-            //instancia aluno
-            //salva no arquivo
-
-        }else{
-            Aluno alunoResult = findAlunoById(aluno.getId());
-            if(alunoResult==null){
-                //instancia aluno
-                //salva no arquivo
-            }
+        Aluno alunoAtual = findAlunoById(aluno.getId());
+        if ( alunoAtual == null){
+            escreverAlunoNoArquivo(aluno,"Alunos.txt");
         }
         return aluno;
     }
 
     @Override
-    public Aluno editarAluno(Aluno aluno) {
-        return null;
+    public Aluno editarAluno(Long id) throws Exception {
+        Aluno aluno = findAlunoById(id);
+        if ( aluno!= null){
+            escreverAlunoNoArquivo(aluno,"Alunos.txt");
+        }else{
+            System.out.println("ALUNO NÃO ENCONTRADO");
+        }
+        return aluno;
     }
 
     @Override
@@ -87,37 +81,32 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public Aluno findAlunoById(Long idAluno) {
+    public Aluno findAlunoById(Long idAluno) throws Exception {
+        String path = systemPathAlunos+"\\"+"Aluno.txt";
+        LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
 
-        Date actualDate = new Date();
-        String path = systemPathAlunos+"\\"+"Alunos.txt";
-        File dest = new File(path);
+        for (Aluno alunoAtual:
+                alunos) {
 
-        if(dest == null){
-            //arquivo inexistente
-        }else{
-            String resp ="";
-            try{
-                BufferedReader arquivo = new BufferedReader(new FileReader("Alunos.txt)"));
-                do{
-                    String linha = arquivo.readLine();
-                    String[] linhaSplitada = linha.split("|");
-                    if (Integer.parseInt(linhaSplitada[0]) == idAluno){
-                        return builtAlunoFromString(linha);
-                    }
-
-                }while(arquivo.ready());
-
-            }catch(Exception e){e.printStackTrace();}
-
+            if(alunoAtual.getId() == idAluno){
+                return alunoAtual.clone();
+            }
 
         }
-
         return null;
+    }
+
+    private boolean escreverAlunoNoArquivo(Aluno aluno, String nomeArquivoAluno) throws Exception {
+
+        String path = systemPathAlunos+"\\"+nomeArquivoAluno;
+        LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
+        alunos.add(aluno.clone());
+        return persistir.serializar(path,alunos);
 
     }
 
-    private Aluno builtAlunoFromString(String linha) {
-        return null;
-    }
+
+
+
+
 }

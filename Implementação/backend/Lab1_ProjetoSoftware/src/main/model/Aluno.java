@@ -1,10 +1,14 @@
 package main.model;
 
 
+import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
-public class Aluno {
+public class Aluno implements Serializable{
 
+    private static final long serialVersionUID = 10L;
     private Long id;
     private Long matricula;
     private String nome;
@@ -153,5 +157,47 @@ public class Aluno {
 
     public void setDisciplinasSolicitadas(List<Disciplina> disciplinasSolicitadas) {
         this.disciplinasSolicitadas = disciplinasSolicitadas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Aluno aluno)) return false;
+        return Objects.equals(getId(), aluno.getId()) && Objects.equals(getMatricula(), aluno.getMatricula()) && Objects.equals(getNome(),
+                aluno.getNome()) && Objects.equals(getNomeFamiliar(), aluno.getNomeFamiliar()) && Objects.equals(getDocumentoLegal(), aluno.getDocumentoLegal())
+                && Objects.equals(getDisciplinasCursadas(), aluno.getDisciplinasCursadas()) && Objects.equals(getDisciplinasPendentes(),
+                aluno.getDisciplinasPendentes()) && Objects.equals(getDisciplinasEmAndamento(), aluno.getDisciplinasEmAndamento()) &&
+                Objects.equals(getDisciplinasSolicitadas(), aluno.getDisciplinasSolicitadas()) && Objects.equals(getCurriculo(),
+                aluno.getCurriculo()) && Objects.equals(getCurso(), aluno.getCurso()) && Objects.equals(getAnoIngresso(), aluno.getAnoIngresso()) &&
+                Objects.equals(getAnoDesligamento(), aluno.getAnoDesligamento()) && Objects.equals(getEndereco(), aluno.getEndereco());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getMatricula(), getNome(), getNomeFamiliar(), getDocumentoLegal(),
+                getDisciplinasCursadas(), getDisciplinasPendentes(), getDisciplinasEmAndamento(), getDisciplinasSolicitadas(),
+                getCurriculo(), getCurso(), getAnoIngresso(), getAnoDesligamento(), getEndereco());
+    }
+
+    @Override
+    public Aluno clone(){
+        Aluno retorno = new Aluno();
+
+        retorno.id = this.id;
+        retorno.matricula = this.matricula;
+        retorno.nome = this.nome;
+        retorno.nomeFamiliar = this.nomeFamiliar;
+        retorno.documentoLegal = this.documentoLegal;
+        retorno.disciplinasCursadas = new LinkedList<Disciplina>(this.disciplinasCursadas);
+        retorno.disciplinasPendentes = new LinkedList<Disciplina>(this.disciplinasPendentes);
+        retorno.disciplinasEmAndamento = new LinkedList<Disciplina>(this.disciplinasEmAndamento);
+        retorno.disciplinasSolicitadas = new LinkedList<Disciplina>(this.disciplinasSolicitadas);
+        retorno.curriculo = this.curriculo;
+        retorno.curso = this.curso;
+        retorno.anoIngresso = this.anoIngresso;
+        retorno.anoDesligamento = this.anoDesligamento;
+        retorno.endereco = this.endereco;
+
+        return retorno;
     }
 }

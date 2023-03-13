@@ -32,7 +32,7 @@ public class AlunoController {
         return null;
     }
 
-    public List<Disciplina> matricularEmDisciplinas (List<Disciplina> disciplinas, Long idAluno){
+    public List<Disciplina> matricularEmDisciplinas (List<Disciplina> disciplinas, Long idAluno) throws Exception{
 
         Aluno aluno = alunoService.findAlunoById(idAluno);
 
@@ -49,7 +49,7 @@ public class AlunoController {
 
     }
 
-    public boolean selecionarDisciplinas(Long idAluno){
+    public boolean selecionarDisciplinas(Long idAluno) throws Exception{
 
         Aluno aluno = alunoService.findAlunoById(idAluno);
 

@@ -8,9 +8,11 @@ import java.util.List;
 public interface AlunoService {
 
 
-    Aluno criarAluno(Aluno aluno);
-    Aluno editarAluno (Aluno aluno);
+    Aluno criarAluno(Aluno aluno) throws Exception;
+    Aluno editarAluno(Long id) throws Exception;
+
     Aluno deletarAluno (Aluno aluno);
     List<Disciplina> matricularEmDisciplinas(List<Disciplina> disciplinasDesejadas, Long idAluno);
-    Aluno findAlunoById(Long idAluno);
+
+    Aluno findAlunoById(Long idAluno) throws Exception;
 }
