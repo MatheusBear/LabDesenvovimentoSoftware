@@ -36,35 +36,23 @@ public class AlunoController {
 
         Aluno aluno = alunoService.findAlunoById(idAluno);
 
-        List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas,idAluno);
+        if ( aluno != null) {
+            List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas, idAluno);
 
-        if(matricula == null ){
-            //nao foi possivel matricular, requisitos nao atendem
+            if (matricula == null) {
+                //nao foi possivel matricular, requisitos nao atendem
 
+            } else {
+                // foi possivel matricular
+            }
+            return matricula;
         }else{
-            // foi possivel matricular
-        }
-
-        return matricula;
-
-    }
-
-    public boolean selecionarDisciplinas(Long idAluno) throws Exception{
-
-        Aluno aluno = alunoService.findAlunoById(idAluno);
-
-        List<Disciplina> disciplinasDisponiveis = aluno.getCurriculo().getDisciplinasDoCurriculo();
-
-        LinkedList disciplinasSelecionadas = new LinkedList<>();
-
-        if(matricularEmDisciplinas(disciplinasSelecionadas,idAluno) != null ){
-
-            return true;
-        }else{
-            return false;
+            return null;
         }
 
     }
+
+
 
 
 }

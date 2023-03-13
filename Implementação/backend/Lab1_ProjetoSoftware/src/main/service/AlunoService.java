@@ -9,7 +9,7 @@ public interface AlunoService {
 
 
     Aluno criarAluno(Aluno aluno) throws Exception;
-    Aluno editarAluno(Long id) throws Exception;
+    Aluno editarAluno(Long id,Aluno alunoModificado) throws Exception;
 
     Aluno deletarAluno(Long id) throws Exception;
 

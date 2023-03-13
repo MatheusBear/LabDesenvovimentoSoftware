@@ -28,9 +28,11 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public Aluno editarAluno(Long id) throws Exception {
+    public Aluno editarAluno(Long id, Aluno alunoModificado) throws Exception {
         Aluno aluno = findAlunoById(id);
         if ( aluno!= null){
+            deletarAluno(id);
+            aluno = alunoModificado.clone();
             escreverAlunoNoArquivo(aluno,"Alunos.txt");
         }else{
             System.out.println("ALUNO NÃO ENCONTRADO");
