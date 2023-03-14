@@ -111,7 +111,7 @@ public class GerenciamentoPrincipal {
         Aluno novoAluno = matriculaController.matriculaAluno(requisicaoDeMatriculaAluno);
 
         if (novoAluno != null){
-            System.out.println("Aluno cadastrado com sucesso");
+            System.out.println("Aluno cadastrado com sucesso, Matricula: "+novoAluno.getMatricula());
         }else{
             System.out.println("Falha ao matricular aluno");
         }
@@ -125,7 +125,7 @@ public class GerenciamentoPrincipal {
 
         GerenciamentoPrincipal gerenciamentoPrincipal = new GerenciamentoPrincipal();
         gerenciamentoPrincipal.matricularAluno();
-        gerenciamentoPrincipal.selecionarDisciplinas(Long.valueOf(1));
+        //gerenciamentoPrincipal.selecionarDisciplinas(Long.valueOf(1));
 
 
 

@@ -1,9 +1,12 @@
 package main.model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Curriculo {
+public class Curriculo implements Serializable {
+
+    private static final long serialVersionUID = 30L;
 
     private Long id;
     private List<Disciplina> disciplinasDoCurriculo;

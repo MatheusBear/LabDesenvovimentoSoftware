@@ -1,6 +1,10 @@
 package main.model;
 
-public class Disciplina {
+import java.io.Serializable;
+
+public class Disciplina implements Serializable {
+
+    private static final long serialVersionUID = 70L;
 
     private Long id;
     private String nome;

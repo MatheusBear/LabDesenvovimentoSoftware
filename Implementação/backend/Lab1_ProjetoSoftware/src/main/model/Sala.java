@@ -1,6 +1,10 @@
 package main.model;
 
-public class Sala {
+import java.io.Serializable;
+
+public class Sala implements Serializable {
+
+    private static final long serialVersionUID = 130L;
 
     private Integer numero;
     private String prédio;

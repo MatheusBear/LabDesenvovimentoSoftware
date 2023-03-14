@@ -11,6 +11,9 @@ import main.service.AlunoService;
 import main.service.CursoService;
 import main.service.TurmaService;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,10 +41,10 @@ public class AlunoServiceImpl implements AlunoService {
             aluno.getNomeFamiliar(),
             aluno.getDocumentoLegal(),
             new LinkedList<Disciplina>(),
-            new LinkedList<Disciplina>(cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).getDisciplinasDoCurriculo()),
+            new LinkedList<Disciplina>   (), //retirar () e colocar isso qdo ficar pronto->//(cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).getDisciplinasDoCurriculo()),
             new LinkedList<Disciplina>(),
             new LinkedList<Disciplina>(),
-            cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).clone(),
+            new Curriculo(), //retirar () e colocar isso qdo ficar pronto ->//cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).clone(),
             aluno.getCurso(),
             ""+dataAtual.getYear(),
             null,
@@ -52,8 +55,16 @@ public class AlunoServiceImpl implements AlunoService {
         return alunoAtual;
     }
 
-    private Long geradorDeId() {
-        return 1L;
+    private Long geradorDeId() throws Exception {
+
+        LinkedList<Aluno> alunosMatriculados = (LinkedList<Aluno>) carregarArquivoAlunoParaMemoria("Alunos.txt");
+
+        if(alunosMatriculados.size() <= 0) {
+            return 1L;
+        }else{
+            Aluno aluno = alunosMatriculados.get(alunosMatriculados.size()-1);
+            return (aluno.getId()+1L);
+        }
     }
 
     @Override
@@ -121,7 +132,7 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public Aluno findAlunoById(Long idAluno) throws Exception {
-        String path = systemPathAlunos+"\\"+"Aluno.txt";
+        String path = systemPathAlunos+"\\"+"Alunos.txt";
         LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
 
         for (Aluno alunoAtual:
@@ -136,7 +147,7 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     public Aluno findAlunoByDocumentoLegal(String documentoLegal) throws Exception {
-        String path = systemPathAlunos+"\\"+"Aluno.txt";
+        String path = systemPathAlunos+"\\"+"Alunos.txt";
         LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
 
         for (Aluno alunoAtual:
@@ -157,6 +168,12 @@ public class AlunoServiceImpl implements AlunoService {
         alunos.add(aluno.clone());
         return persistir.serializar(path,alunos);
 
+    }
+
+    private LinkedList<Aluno> carregarArquivoAlunoParaMemoria(String nomeArquivoAluno) throws Exception {
+
+        String path = systemPathAlunos+"\\"+nomeArquivoAluno;
+        return  (LinkedList<Aluno>) persistir.deserializar(path);
     }
 
     private boolean excluirAlunoNoArquivo(Aluno aluno, String nomeArquivoAluno) throws Exception {
