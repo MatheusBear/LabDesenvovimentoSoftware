@@ -29,8 +29,8 @@ public class Aluno implements Serializable{
     }
 
     public Aluno(Long id, Long matricula, String nome, String nomeFamiliar, String documentoLegal, List<Disciplina> disciplinasCursadas,
-                 List<Disciplina> disciplinasPendentes, List<Disciplina> disciplinasEmAndamento, Curriculo curriculo, String curso, String anoIngresso,
-                 String anoDesligamento, String endereco, List<Disciplina> disciplinasSolicitadas) {
+                 List<Disciplina> disciplinasPendentes, List<Disciplina> disciplinasEmAndamento, List<Disciplina> disciplinasSolicitadas,
+                 Curriculo curriculo, String curso, String anoIngresso, String anoDesligamento, String endereco) {
         this.id = id;
         this.matricula = matricula;
         this.nome = nome;
@@ -39,13 +39,14 @@ public class Aluno implements Serializable{
         this.disciplinasCursadas = disciplinasCursadas;
         this.disciplinasPendentes = disciplinasPendentes;
         this.disciplinasEmAndamento = disciplinasEmAndamento;
+        this.disciplinasSolicitadas = disciplinasSolicitadas;
         this.curriculo = curriculo;
         this.curso = curso;
         this.anoIngresso = anoIngresso;
         this.anoDesligamento = anoDesligamento;
         this.endereco = endereco;
-        this.disciplinasSolicitadas = disciplinasSolicitadas;
     }
+
 
     public Long getId() {
         return id;
@@ -157,19 +158,6 @@ public class Aluno implements Serializable{
 
     public void setDisciplinasSolicitadas(List<Disciplina> disciplinasSolicitadas) {
         this.disciplinasSolicitadas = disciplinasSolicitadas;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Aluno aluno)) return false;
-        return Objects.equals(getId(), aluno.getId()) && Objects.equals(getMatricula(), aluno.getMatricula()) && Objects.equals(getNome(),
-                aluno.getNome()) && Objects.equals(getNomeFamiliar(), aluno.getNomeFamiliar()) && Objects.equals(getDocumentoLegal(), aluno.getDocumentoLegal())
-                && Objects.equals(getDisciplinasCursadas(), aluno.getDisciplinasCursadas()) && Objects.equals(getDisciplinasPendentes(),
-                aluno.getDisciplinasPendentes()) && Objects.equals(getDisciplinasEmAndamento(), aluno.getDisciplinasEmAndamento()) &&
-                Objects.equals(getDisciplinasSolicitadas(), aluno.getDisciplinasSolicitadas()) && Objects.equals(getCurriculo(),
-                aluno.getCurriculo()) && Objects.equals(getCurso(), aluno.getCurso()) && Objects.equals(getAnoIngresso(), aluno.getAnoIngresso()) &&
-                Objects.equals(getAnoDesligamento(), aluno.getAnoDesligamento()) && Objects.equals(getEndereco(), aluno.getEndereco());
     }
 
     @Override

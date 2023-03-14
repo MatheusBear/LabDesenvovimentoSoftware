@@ -1,5 +1,6 @@
 package main.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Curriculo {
@@ -51,4 +52,21 @@ public class Curriculo {
     public void setNomeCurriculo(String nomeCurriculo) {
         this.nomeCurriculo = nomeCurriculo;
     }
+
+
+    @Override
+    public Curriculo clone(){
+        Curriculo retorno = new Curriculo();
+
+        retorno.id = this.id;
+        retorno.disciplinasDoCurriculo=new LinkedList<Disciplina>(this.disciplinasDoCurriculo);
+        retorno.numeroCurriculo = this.numeroCurriculo;
+        retorno.nomeCurriculo = this.nomeCurriculo;
+
+        return retorno;
+    }
+
+
+
+
 }

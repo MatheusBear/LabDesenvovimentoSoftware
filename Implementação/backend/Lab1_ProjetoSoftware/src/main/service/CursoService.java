@@ -11,6 +11,8 @@ public interface CursoService {
     Curriculo deletarCurriculo (Curriculo curriculo);
 
     Disciplina incluirDisciplina (Disciplina disciplina, Curriculo curriculo);
+    Curriculo getCurriculo (String nomeCurso, String numeroCurriculo);
+
 
 
 }

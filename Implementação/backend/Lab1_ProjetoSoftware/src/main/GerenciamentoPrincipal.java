@@ -8,6 +8,7 @@ import main.service.AlunoService;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class GerenciamentoPrincipal {
 
@@ -37,15 +38,36 @@ public class GerenciamentoPrincipal {
                       
         }while (entrada.equals("salvar"));
        
-        LinkedList<Disciplina> disciplinasSelecionadas = new LinkedList<>();
+        LinkedList<Disciplina> disciplinasSelecionadas = new LinkedList<Disciplina>();
+
+
+        /*disciplinasSelecionadas = (LinkedList<Disciplina>) disciplinasDisponiveis
+                .stream()
+                .filter(f -> idsDesejados.contains(f.getId()))
+                .collect(Collectors.toList());*/
 
         for (Disciplina disciplinaAtual:
                 disciplinasDisponiveis) {
 
+            if(idsDesejados.contains(disciplinaAtual.getId())){
+                disciplinasSelecionadas.add(disciplinaAtual);
 
+            }
         }
 
+        LinkedList<Disciplina> resultado = (LinkedList<Disciplina>) alunoController.matricularEmDisciplinas (disciplinasSelecionadas,idAluno);
 
+        if(resultado!=null){
+            System.out.println("Matriculado com Sucesso");
+            for (Disciplina disciplinaAtual:
+                    resultado) {
+                System.out.println("Disciplna: "+disciplinaAtual.getNome()+" Código: "+disciplinaAtual.getId());
+
+            }
+            
+        }else {
+            System.out.println("Não foi possivel se matricuar, requisitos não atendem");
+        }
     }
 
     public static void main(String[] args) throws Exception {

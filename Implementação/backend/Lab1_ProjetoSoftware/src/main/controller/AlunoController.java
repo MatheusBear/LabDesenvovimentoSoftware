@@ -38,13 +38,6 @@ public class AlunoController {
 
         if ( aluno != null) {
             List<Disciplina> matricula = alunoService.matricularEmDisciplinas(disciplinas, idAluno);
-
-            if (matricula == null) {
-                //nao foi possivel matricular, requisitos nao atendem
-
-            } else {
-                // foi possivel matricular
-            }
             return matricula;
         }else{
             return null;

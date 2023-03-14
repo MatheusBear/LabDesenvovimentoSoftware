@@ -1,12 +1,16 @@
 package main.service.Impl;
 
 import main.model.Aluno;
+import main.model.Curriculo;
 import main.model.Disciplina;
+import main.model.Requests.MatriculaRequestAlunos;
 import main.model.Turma;
 import main.repository.Persistencia;
 import main.service.AlunoService;
+import main.service.CursoService;
 import main.service.TurmaService;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,16 +19,41 @@ public class AlunoServiceImpl implements AlunoService {
 
     private TurmaService turmaService;
     private Persistencia persistir;
+
+    private CursoService cursoService;
     private String systemPathAlunos = "c:\\SistemaMatriculas\\Alunos";
 
     @Override
-    public Aluno criarAluno(Aluno aluno) throws Exception {
+    public Aluno criarAluno(MatriculaRequestAlunos aluno) throws Exception {
+        Date dataAtual = new Date();
 
-        Aluno alunoAtual = findAlunoById(aluno.getId());
+        Aluno alunoAtual = findAlunoByDocumentoLegal(aluno.getDocumentoLegal());
         if ( alunoAtual == null){
-            escreverAlunoNoArquivo(aluno,"Alunos.txt");
+
+            Long id= geradorDeId();
+            alunoAtual = new Aluno(
+            id,
+            id,
+            aluno.getNome(),
+            aluno.getNomeFamiliar(),
+            aluno.getDocumentoLegal(),
+            new LinkedList<Disciplina>(),
+            new LinkedList<Disciplina>(cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).getDisciplinasDoCurriculo()),
+            new LinkedList<Disciplina>(),
+            new LinkedList<Disciplina>(),
+            cursoService.getCurriculo(aluno.getCurso(),aluno.getCurriculo()).clone(),
+            aluno.getCurso(),
+            ""+dataAtual.getYear(),
+            null,
+            aluno.getEndereco()
+            );
+            escreverAlunoNoArquivo(alunoAtual,"Alunos.txt");
         }
-        return aluno;
+        return alunoAtual;
+    }
+
+    private Long geradorDeId() {
+        return 1L;
     }
 
     @Override
@@ -99,6 +128,21 @@ public class AlunoServiceImpl implements AlunoService {
                 alunos) {
 
             if(alunoAtual.getId() == idAluno){
+                return alunoAtual.clone();
+            }
+
+        }
+        return null;
+    }
+
+    public Aluno findAlunoByDocumentoLegal(String documentoLegal) throws Exception {
+        String path = systemPathAlunos+"\\"+"Aluno.txt";
+        LinkedList<Aluno> alunos = (LinkedList<Aluno>) persistir.deserializar(path);
+
+        for (Aluno alunoAtual:
+                alunos) {
+
+            if(alunoAtual.getDocumentoLegal().equals(documentoLegal)){
                 return alunoAtual.clone();
             }
 
