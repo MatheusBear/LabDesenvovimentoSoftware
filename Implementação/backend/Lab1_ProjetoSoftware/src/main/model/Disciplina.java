@@ -1,6 +1,7 @@
 package main.model;
 
 import java.io.Serializable;
+import java.util.*;
 
 public class Disciplina implements Serializable {
 
@@ -123,5 +124,30 @@ public class Disciplina implements Serializable {
 
     public void setPeso(Integer peso) {
         this.peso = peso;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getNumero(), getPeriodo(), getCargaHoraria(),
+                getCurriculo(), getHorario(), getTurno(), getDuração(),
+                getPeso(), isObrigatoria());
+    }
+
+    public Disciplina Clone(){
+        Disciplina disc = new Disciplina();
+
+        disc.id = this.id;
+        disc.nome = this.nome;
+        disc.numero = this.numero;
+        disc.periodo = this.periodo;
+        disc.cargaHoraria = this.cargaHoraria;
+        disc.curriculo = this.curriculo;
+        disc.horario = this.horario;
+        disc.turno = this.turno;
+        disc.duração = this.duração;
+        disc.peso = this.peso;
+        disc.obrigatoria = this.obrigatoria;
+
+        return disc;
     }
 }
