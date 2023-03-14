@@ -24,4 +24,9 @@ class CursoServiceImpl implements CursoService {
     public Disciplina incluirDisciplina(Disciplina disciplina, Curriculo curriculo) {
         return null;
     }
+
+    @Override
+    public Curriculo getCurriculo(String nomeCurso, String numeroCurriculo) {
+        return null;
+    }
 }
