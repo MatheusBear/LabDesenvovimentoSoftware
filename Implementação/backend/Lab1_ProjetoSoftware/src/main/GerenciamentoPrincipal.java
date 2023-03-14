@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+import java.util.Scanner;
 
 public class GerenciamentoPrincipal {
 
@@ -119,17 +120,94 @@ public class GerenciamentoPrincipal {
 
     }
 
-    public static void main(String[] args) throws Exception {
+    private static void menuPrincipal() {
 
+        System.out.println("Seja Bem vindo a nossa escola !!!");
+		System.out.println("\n\tMenu:");
+		System.out.println("1. Logar na plataforma");
+		System.out.println("2. Realizar Matricula");
 
+		System.out.println("3. Finalizar o menu principal");
+		System.out.println("Digite a opcao desejada:");
+	}
+    private static void menuMatricula() {
+        System.out.println("\n\tMenu:");
+		System.out.println("1. Realizar Matricula de Aluno");
+		System.out.println("2. Realizar Matricula de Professor");
 
-        GerenciamentoPrincipal gerenciamentoPrincipal = new GerenciamentoPrincipal();
-        gerenciamentoPrincipal.matricularAluno();
-        //gerenciamentoPrincipal.selecionarDisciplinas(Long.valueOf(1));
-
-
-
+		System.out.println("3. Finalizar o menu de matrícula");
+		System.out.println("Digite a opcao desejada:");
     }
 
+    public static void main(String[] args) throws Exception {
+        String entradaMenu, entradaMenuMatricula;
+        Boolean isAtivo = true;
+        GerenciamentoPrincipal gerenciamentoPrincipal = new GerenciamentoPrincipal();
+        try (Scanner ler = new Scanner(System.in)){
+            while (isAtivo) {
+                menuPrincipal();
 
+				entradaMenu = ler.nextLine();
+
+                switch (Integer.parseInt(entradaMenu)) {
+                    //logar na plataforma
+                    case 1:
+                     
+                    break;
+                    
+                    
+                    //realizar matriculas
+                    case 2:
+                   
+                    menuMatricula();
+
+                    entradaMenuMatricula = ler.nextLine();
+    
+                    switch (Integer.parseInt(entradaMenuMatricula)) {
+                        //matricula do aluno
+                        case 1:
+                            gerenciamentoPrincipal.matricularAluno();
+                            //gerenciamentoPrincipal.selecionarDisciplinas(Long.valueOf(1));
+                            break;
+                            case 2:
+
+                            break;
+
+                            case 3:
+
+                            break;
+
+
+                    }
+                           
+
+                    
+
+                    case 3:
+						isAtivo = false;
+						System.out.println("Programa finalizado!");
+						break;
+
+					default:
+
+						System.out.println("Comando inválido");
+						break;
+                
+                }
+            }
+        }
+    }
 }
+        
+        
+
+        
+
+        
+
+
+
+    
+
+
+
