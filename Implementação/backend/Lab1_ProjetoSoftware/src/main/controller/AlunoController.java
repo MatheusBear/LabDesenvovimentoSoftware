@@ -3,13 +3,14 @@ package main.controller;
 import main.model.Aluno;
 import main.model.Disciplina;
 import main.service.AlunoService;
+import main.service.Impl.AlunoServiceImpl;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class AlunoController {
 
-    AlunoService alunoService;
+    AlunoService alunoService =  new AlunoServiceImpl();
 
     public Aluno editarMeuCadastro(Long id){
 

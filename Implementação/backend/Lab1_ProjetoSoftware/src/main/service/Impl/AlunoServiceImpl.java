@@ -6,6 +6,7 @@ import main.model.Disciplina;
 import main.model.Requests.MatriculaRequestAlunos;
 import main.model.Turma;
 import main.repository.Persistencia;
+import main.repository.SalvarNoArquivo;
 import main.service.AlunoService;
 import main.service.CursoService;
 import main.service.TurmaService;
@@ -17,10 +18,9 @@ import java.util.List;
 public class AlunoServiceImpl implements AlunoService {
 
 
-    private TurmaService turmaService;
-    private Persistencia persistir;
-
-    private CursoService cursoService;
+    private TurmaService turmaService = new TurmaServiceImpl();
+    private Persistencia persistir = new SalvarNoArquivo();
+    private CursoService cursoService = new CursoServiceImpl();
     private String systemPathAlunos = "c:\\SistemaMatriculas\\Alunos";
 
     @Override
